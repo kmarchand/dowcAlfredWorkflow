@@ -1,4 +1,4 @@
-# Day One Word Search AlfredWorkflow
+# Day One Word Search Alfred Workflow
 
 This workflow parses entries from [Day One](https://dayone.zendesk.com) and counts instances of one or more words.  The totals for past week, month, year and all time are shown for each word selected.  If no words are specified, overall total word count is shown.
 
