@@ -1,10 +1,14 @@
 #!/usr/bin/python
+#
+#   Alfred 2 Workflow
+#   Day One word search parsing
+#   Kevin Marchand - 2013-11-01
+#
 
 import os
 import plistlib
 from datetime import datetime, timedelta
 from sys import argv
-import tempfile
 import xml.etree.ElementTree as ET
 
 keywords = []
@@ -88,29 +92,6 @@ for kw in keywords:
 
 # Generate Alfred's XML
 
-# root = ET.Element('items')
-
-# for kw in keywords:
-
-#     for period in ['past week', 'past month', 'past year', 'all time']:
-
-#         item = ET.SubElement(root, 'item')
-#         item.set('uid', "'%s' in %s" % (kw, period))
-#         item.set('arg', '/Applications/Day One.app')
-
-#         title = ET.SubElement(item, 'title')
-#         title.text = "'%s' in %s: %s" % (
-#             kw, period, keyword_count[kw + ' - ' + period])
-
-# subtitle = ET.SubElement(item, 'subtitle')
-# subtitle.text = 'iCloud Device: '+device_name
-
-#         icon = ET.SubElement(item, 'icon')
-#         icon.set('type', 'fileicon')
-#         icon.text = '/Applications/Day One.app'
-
-# print ET.tostring(root)
-
 root = ET.Element('items')
 
 for kw in keywords:
@@ -120,7 +101,7 @@ for kw in keywords:
     item.set('arg', '/Applications/Day One.app')
 
     title = ET.SubElement(item, 'title')
-    title.text = "'%s'\tweek: %s, month: %s, year: %s, all: %s" % (
+    title.text = "'%s' in past week: %s, month: %s, year: %s, all: %s" % (
         kw,
         keyword_count[kw + ' - past week'],
         keyword_count[kw + ' - past month'],
